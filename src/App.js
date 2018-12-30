@@ -1,26 +1,20 @@
 import React, { Component } from 'react';
-import logo from './logo.svg';
-import './App.css';
-
+import LandingPage from './Components/LandingPage/LandingPage'
+import Tasks from './Components/TaskGroup1/TasksGroup1'
+import Tasks2 from './Components/TaskGroup2/TasksGroup2'
+import './App.css'
+import {HashRouter, Switch, Route} from 'react-router-dom'
 class App extends Component {
   render() {
     return (
-      <div className="App">
-        <header className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
-          <p>
-            Edit <code>src/App.js</code> and save to reload.
-          </p>
-          <a
-            className="App-link"
-            href="https://reactjs.org"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Learn React
-          </a>
-        </header>
-      </div>
+      <HashRouter>
+      <Switch>
+        <Route exact path = '/' component={LandingPage}/>
+        <Route path = '/tasks' component={Tasks}/>
+        <Route path = '/tasks2' component={Tasks2}/>
+      </Switch>
+
+      </HashRouter>
     );
   }
 }
